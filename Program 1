@@ -1,0 +1,95 @@
+#include <iostream>   // for cin and cout
+#include <iomanip>    // for setw() and setfill()
+using namespace std;  // so that no need to preface every cin and cout with std::
+
+int main()
+{
+    int menuOption = 0;
+
+    cout << "Choose from among the following options:  \n"
+         << "1. Display original graphic  \n"
+         << "2. Display building          \n"
+         << "3. Exit the program          \n"
+         << "Your choice -> ";
+    cin >> menuOption;
+    cout << endl;   // Leave an empty line after getting input
+
+    if( menuOption == 1) {
+        // My original graph. FORG
+        cout << setw( 8) << " ";
+        for( int i = 0; i < 42; i++) {
+            cout << "-";
+        }
+        cout << endl;
+        // The backslash '\' character is a signal to the system that the next character is something
+        // special.  When we want the backslash character itself to be displayed, we must put two
+        // backslash characters in a row.
+        cout << setfill('.')
+             << setw( 8) << " " << "    _____\n"
+             << setw( 8) << " " << "   /     \\______\n"
+             << setw( 8) << " " << "  | o     |     \\____\n"
+             << setw( 8) << " " << "  /\\_____/           \\___\n"
+             << setw( 8) << " " << " /                       \\\n"
+             << setw( 8) << " " << "|_______/                 \\\n"
+             << setw( 8) << " " << "  \\______   _       ___    \\\n"
+             << setw( 8) << " " << "        /\\_//      /   \\    |\n"
+             << setw( 8) << " " << "       // //______/    /___/\n"
+             << setw( 8) << " " << "      /\\/\\/\\      \\   / \\ \\\n"
+             << setw( 8) << " " << "                    \\ \\   \\ \\\n"
+             << setw( 8) << " " << "                      \\ \\   \\ \\\n"
+             << setw( 8) << " " << "                        \\ \\  \\ \\\n"
+             << setw( 8) << " " << "                         \\ \\ /\\/\\\n"
+             << setw( 8) << " " << "                         /\\/\\   \n"
+             << endl;
+        cout << setw( 8) << " ";
+        for( int i=0; i<42; i++) {
+            cout << "-";
+        }
+        cout << endl;
+    }//end program if chose 1 //display my original ascii graph
+
+    else if( menuOption == 2) {
+        cout << "Number of building sections -> " << endl;
+        int number;
+        cin >> number;
+        int num = number;
+
+        cout << setfill(' ') << setw(number + 4) << " /\\" << "\n";
+        cout << setfill(' ') << setw(number + 4) << " ||" << "\n";
+        cout << setfill(' ') << setw(number + 4) << " ||" << "\n";
+        cout << setfill(' ') << setw(number + 4) << "--" << "\n";
+        cout << setfill(' ') << setw(number + 5) << "|++|" << "\n";
+        cout << setfill(' ') << setw(number + 5) << "====" << "\n";
+
+        while (num >= 1){
+            int innerspace = number + 1 - num;
+            int outerspace = 1;
+            while (innerspace >= 1){
+                cout << setfill(' ') << setw(num + 2) << "|";
+                cout << setw(outerspace) << setfill(':') << "\\";
+                cout << setw(2 * innerspace - 1) << setfill(':') << "/";
+                cout << setw(outerspace) << "|" << endl;
+                innerspace--;
+                outerspace++;
+            }
+            int innerspace1 = number + 1 - num;
+            int outerspace1 = 0;
+            while (innerspace1 >= 1){
+                cout << setfill(' ') << setw(num + 2) << "|";
+                cout << setw(innerspace1) << setfill(':') << "/";
+                cout << setw(2 * outerspace1 + 1) << setfill(':') << "\\";
+                cout << setw(innerspace1) << "|" <<endl;
+                innerspace1--;
+                outerspace1++;
+            }
+            cout << setfill(' ') << setw(num + 2) <<"/";
+            cout << setw(2 * outerspace1 + 1) << setfill('-') << "\\" << endl;
+            num--;
+        }
+        cout << " " << setw(2 * number + 4) << setfill('.') << "." << endl;
+        cout << setw(2 * number + 6) << setfill('+') << "+" << endl;
+    }
+
+    cout << endl;
+    return 0;
+}

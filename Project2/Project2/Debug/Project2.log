@@ -1,0 +1,3 @@
+﻿  main.cpp
+c:\users\ouzij\onedrive\desktop\cs 141\project2\project2\main.cpp(172): warning C4715: 'checkDot': not all control paths return a value
+  Project2.vcxproj -> C:\Users\ouzij\OneDrive\Desktop\CS 141\Project2\Debug\Project2.exe
